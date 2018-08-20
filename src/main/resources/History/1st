@@ -1,0 +1,14 @@
+                         String pawnsPNG[] ={
+                         "Pawns/rook_Black_5.png",
+                         "Pawns/knight_Black_4.png",
+                         "Pawns/bishop_Black_3.png",
+                         "Pawns/queen_Black_2.png",
+                         "Pawns/king_Black_1.png",
+                         "Pawns/pawn_Black_6.png",
+                         "Pawns/rook_5.png",
+                         "Pawns/knight_4.png",
+                         "Pawns/bishop_3.png",
+                         "Pawns/queen_2.png",
+                         "Pawns/king_1.png",
+                         "Pawns/pawn_6.png"
+                         };
