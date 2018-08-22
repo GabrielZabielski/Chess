@@ -14,23 +14,25 @@ public class PawnController_V2 {
     private boolean white;
     private boolean check = false;
     private StackPane greenField;
+    private StackPane greyField;
 
     private Pawn pawn;
 
 
-    PawnController_V2(AnchorPane pane[][], int tab[][], boolean white, StackPane greenField) {
+    PawnController_V2(AnchorPane pane[][], int tab[][], boolean white, StackPane greenField, StackPane greyField) {
         this.pane = pane;
         this.tab = tab;
         this.white = white;
         this.greenField = greenField;
+        this.greyField = greyField;
             pawn = new Pawn(tab);
 
     }
 
 
 
-    public int xx, yy;
-    public void setC(double x, double y) {
+    private int xx, yy;
+    void setC(double x, double y) {
         this.xx = parse(x / 74, 0);
         this.yy = parse(y / 74, 0);
         //System.out.println(xx + "  y  " + yy);
@@ -48,13 +50,23 @@ public class PawnController_V2 {
             else if (posibleMoveForThisPawn(xx, yy)) {
                 movingPawns(xx, yy);
             }
+
         } catch (IllegalArgumentException e) {     /*nothing*/ }
         catch (ArrayIndexOutOfBoundsException e) {     /*nothing*/ }
 
     }
 
-    private boolean posibleMoveForThisPawn(int x, int y){
+        private boolean posibleMoveForThisPawn(int x, int y) {
 
+        if (absolute(tab[y1][x1]) == 6) {
+            return pawn.posible(x, y, x1, y1, white);
+        } else {
+            System.out.println(tab[y1][x1]);
+        }
+/*
+                    wtf... switch case doesn't work O_o
+                        you can move any pawn(all id) like a pawn( 6 or -6 id) :O
+                            i need to rename Pawn :D
 
         switch (absolute(tab[y1][x1])){
             case 1:
@@ -62,20 +74,28 @@ public class PawnController_V2 {
             case 3:
             case 4:
             case 5:
-            case 6:
+            case 6: {
                 return pawn.posible(x, y, x1, y1, white);
-
+            }
         }
         return false;
     }
+*/
+    return false;
+    }
 
-    private void movingPawns(int x, int y){
-        tab[y][x] = tab[y1][x1];
+
+    private void movingPawns(int toX, int toY){
+        tab[toY][toX] = tab[y1][x1];
         tab[y1][x1] = 0;
-        pane[x][y].getChildren().add(0, pane[x1][y1].getChildren().get(1));
-        setNewPawnSelectedValue();
-        white = !white;
+
+        pane[toX][toY].getChildren().add(0, pane[x1][y1].getChildren().get(1));
+
+        pane[x1][y1].getChildren().add(1, greyField);
+
         soutTab();
+        setNewPawnSelectedValue();
+        white = !white;     //Moved
     }
 
     private void soutTab(){
@@ -90,9 +110,11 @@ public class PawnController_V2 {
 
     private int x1, y1;
     private void setPawnSelected(int x1, int y1){
+        pane[x1][y1].getChildren().get(0).setVisible(true);         //show green squer
         this.x1 = x1;
         this.y1 = y1;
     }
+
     private int getx1(){
         return x1;
     }
@@ -100,6 +122,7 @@ public class PawnController_V2 {
         return y1;
     }
     private void setNewPawnSelectedValue(){
+            pane[x1][y1].getChildren().get(0).setVisible(false);    //hide green squer
         x1 = - 20;
         y1 = - 20;
     }

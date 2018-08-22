@@ -371,7 +371,19 @@
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
-                                          <StackPane fx:id="greenField" cache="true" cacheHint="QUALITY" depthTest="ENABLE" mouseTransparent="true" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                          <StackPane fx:id="greenField" cache="true" cacheHint="QUALITY" depthTest="ENABLE" mouseTransparent="true" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                             <opaqueInsets>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </opaqueInsets>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <children>
+                                          <StackPane fx:id="greyField" cache="true" cacheHint="QUALITY" depthTest="ENABLE" mouseTransparent="true" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                              <opaqueInsets>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </opaqueInsets>
@@ -412,7 +424,7 @@
             </AnchorPane>
          </top>
          <left>
-            <ListView prefHeight="663.0" prefWidth="220.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="historyList" prefHeight="663.0" prefWidth="220.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
             <FlowPane columnHalignment="CENTER" prefHeight="648.0" prefWidth="54.0" BorderPane.alignment="CENTER">

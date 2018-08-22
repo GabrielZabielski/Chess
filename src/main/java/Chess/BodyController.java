@@ -13,6 +13,9 @@ public class BodyController {
     private GridPane boardcenter;
     @FXML
     private StackPane greenField;
+    @FXML
+    private StackPane greyField;
+
 
     private AnchorPane pane[][] = new AnchorPane[8][8];
     private int tab[][];
@@ -29,18 +32,16 @@ public class BodyController {
 
     //PawnsController pawnsController = new PawnsController(pane, tab);
 
-        pawnController_v2 = new PawnController_V2(pane,tab, white, greenField);
+        pawnController_v2 = new PawnController_V2(pane,tab, white, greenField, greyField);
         boardcenter.addEventHandler(MouseEvent.MOUSE_CLICKED, setClick);
 
 
 
     }
 
-    EventHandler<MouseEvent> setClick = e -> {
+    private EventHandler<MouseEvent> setClick = e -> {
         double x =e.getX();
         double y =e.getY();
-        System.out.println(x+"  x  "+y);
-        int cCount = e.getClickCount();
         pawnController_v2.setC(x, y);
     };
 
