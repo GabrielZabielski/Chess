@@ -1,5 +1,6 @@
 package Chess;
 
+import javafx.scene.control.ListView;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.*;
@@ -18,14 +19,17 @@ public class PawnController_V2 {
 
     private Pawn pawn;
 
+    private HistoryBuilder historyBuilder;
 
-    PawnController_V2(AnchorPane pane[][], int tab[][], boolean white, StackPane greenField, StackPane greyField) {
+    PawnController_V2(AnchorPane pane[][], int tab[][], boolean white, StackPane greenField, StackPane greyField, ListView historyList) {
         this.pane = pane;
         this.tab = tab;
         this.white = white;
         this.greenField = greenField;
         this.greyField = greyField;
             pawn = new Pawn(tab);
+
+            historyBuilder = new HistoryBuilder(historyList);
 
     }
 
@@ -95,6 +99,9 @@ public class PawnController_V2 {
 
         soutTab();
         setNewPawnSelectedValue();
+
+        historyBuilder.addToList(tab[toY][toX], x1, y1, toX, toY);
+
         white = !white;     //Moved
     }
 

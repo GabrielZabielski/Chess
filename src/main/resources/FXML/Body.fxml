@@ -431,8 +431,6 @@
                <children>
                   <AnchorPane prefHeight="646.0" prefWidth="115.0">
                      <children>
-                        <Label layoutX="40.0" layoutY="100.0" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="260.0" />
-                        <Label layoutX="40.0" layoutY="522.0" text="Label" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <Separator layoutX="9.0" layoutY="313.0" prefHeight="20.0" prefWidth="97.0" AnchorPane.bottomAnchor="313.0" AnchorPane.topAnchor="313.0" />
                      </children>
                   </AnchorPane>

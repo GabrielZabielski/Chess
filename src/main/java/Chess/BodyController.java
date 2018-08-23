@@ -2,6 +2,7 @@ package Chess;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +18,8 @@ public class BodyController {
     private StackPane greyField;
 
 
+
+
     private AnchorPane pane[][] = new AnchorPane[8][8];
     private int tab[][];
     private boolean white = true;
@@ -26,16 +29,15 @@ public class BodyController {
 
     fieldsBuilder();
 
-    // add pawns to the board
-    Pawns pawns = new Pawns(pane);
-    this.tab = pawns.getTab();
+    // add pawnsSetter to the board
+    PawnsSetter pawnsSetter = new PawnsSetter(pane);
+    pawnsSetter.loopingTheTab();
+    this.tab = pawnsSetter.getTab();
 
     //PawnsController pawnsController = new PawnsController(pane, tab);
 
-        pawnController_v2 = new PawnController_V2(pane,tab, white, greenField, greyField);
+        pawnController_v2 = new PawnController_V2(pane,tab, white, greenField, greyField, historyList);
         boardcenter.addEventHandler(MouseEvent.MOUSE_CLICKED, setClick);
-
-
 
     }
 
@@ -60,10 +62,12 @@ public class BodyController {
                 }
             }
         }
+
     }
 
 
-
+    @FXML
+    private ListView<String> historyList;
 
 }
 

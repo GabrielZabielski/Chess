@@ -7,8 +7,8 @@ public class NodeController {
 
     private Node node;
 
-    NodeController(Node node){
-        System.out.println("no coœ mam");
+    public NodeController(Node node){
+
         this.node = node;
     }
 
